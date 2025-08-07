@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: main # 确保你的主分支是 main
-  # site_id: "你的Netlify API ID" # 如果你使用了 Netlify Git Gateway，请填写这个字段
+  # site_id: "91135e24-2759-4d0d-8bdb-de5891577382" # 如果你使用了 Netlify Git Gateway，请填写这个字段
 
 publish_mode: editorial_workflow
 
