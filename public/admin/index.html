@@ -10,35 +10,31 @@
   <script>
     window.CMS_MANUAL_INIT = true
     DecapCMS.init({
-      backend:
-  name: git-gateway
-  branch: main # 确保你的主分支是 main
-  # site_id: "91135e24-2759-4d0d-8bdb-de5891577382" # 如果你使用了 Netlify Git Gateway，请填写这个字段
-
-publish_mode: editorial_workflow
-
-# 媒体文件夹配置
-media_folder: "src/assets/images" # Decap CMS 上传的图片将存放在这里
-public_folder: "/assets/images"   # 网站中引用图片的路径。
-                                  # 根据你提供的目录，这是一个正确的路径。
-                                  # Astro 会处理 src/assets 文件夹中的资源。
-
-# 集合 (Collections)
-collections:
-  - name: "blog"
-    label: "博客文章"
-    folder: "src/content/blog" # 你的博客文章存放路径，与你的目录结构完全匹配
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "描述", name: "description", widget: "string", required: false}
-      - {label: "发布日期", name: "date", widget: "datetime"}
-      - {label: "正文", name: "body", widget: "markdown"}
-      # 你可以根据你文章的 frontmatter 继续在这里添加其他字段，例如：
-      # - {label: "作者", name: "author", widget: "string", required: false}
-      # - {label: "标签", name: "tags", widget: "list", required: false}
-    })
+      backend: {
+        name: 'git-gateway',
+        branch: 'main',
+        // 如果你使用了 Netlify Git Gateway，请取消注释并填写你的 ID
+        // site_id: '91135e24-2759-4d0d-8bdb-de5891577382'
+      },
+      publish_mode: 'editorial_workflow',
+      media_folder: 'src/assets/images',
+      public_folder: '/assets/images',
+      collections: [
+        {
+          name: 'blog',
+          label: '博客文章',
+          folder: 'src/content/blog',
+          create: true,
+          slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+          fields: [
+            {label: '标题', name: 'title', widget: 'string'},
+            {label: '描述', name: 'description', widget: 'string', required: false},
+            {label: '发布日期', name: 'date', widget: 'datetime'},
+            {label: '正文', name: 'body', widget: 'markdown'}
+          ]
+        }
+      ]
+    });
   </script>
 </body>
 </html>
